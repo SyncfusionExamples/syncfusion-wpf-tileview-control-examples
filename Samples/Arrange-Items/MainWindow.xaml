@@ -1,0 +1,138 @@
+﻿<Window x:Class="Arrange_Items.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Arrange_Items"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="TileViewControl - Arrange items" Height="550" Width="900">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <syncfusion:TileViewControl MinimizedItemsPercentage="30"
+                                    AnimationDuration="00:00:00.300"
+                                    EnableAnimation="{Binding EnableAnimation}" 
+                                    HorizontalScrollBarVisibility="{Binding HorizontalScrollBarVisibility}"
+                                    VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility}"
+                                    ColumnCount="{Binding ColumnCount}"  
+                                    RowCount="{Binding RowCount}"
+                                    AllowItemRepositioning="{Binding AllowItemRepositioning}"
+                                    ColumnWidth="200" RowHeight="150" 
+                                    Width="470" Height="400" 
+                                    ItemsSource="{Binding TileViewItems}" 
+                                    Name="tileViewControl">
+            <syncfusion:TileViewControl.ItemContainerStyle>
+                <Style TargetType="{x:Type syncfusion:TileViewItem}">
+                    <Setter Property="Header" Value="{Binding Header}" />
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           Text="{Binding Content}"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </syncfusion:TileViewControl.ItemContainerStyle>
+        </syncfusion:TileViewControl>
+        
+        
+        <GroupBox Margin="0,0,3,3" 
+                  Name="groupboxadv1"
+                  FontSize="15" 
+                  Grid.Column="1"
+                  BorderBrush="Silver"
+                  Header="User Options">
+            <Grid HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" 
+                  Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="130"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text ="AllowItemRepositioning" Margin="3"/>
+                <CheckBox Margin="3"
+                          Grid.Column="1"
+                          IsChecked="{Binding AllowItemRepositioning,Mode=TwoWay}" />
+
+                <TextBlock Margin="3"
+                           Grid.Row="1"
+                           Text ="ColumnCount"/>
+                <syncfusion:UpDown  Margin="3" 
+                                    MinValue="1" 
+                                    ZeroColor="Black"
+                                    NegativeForeground="Black"
+                                    NumberDecimalDigits="0"
+                                    Value="{Binding ColumnCount,Mode=TwoWay}"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    MaxValue="10" />
+
+                <TextBlock Margin="3"
+                           Grid.Row="2"
+                           Text ="RowCount" />
+                <syncfusion:UpDown  ZeroColor="Black" 
+                                    NegativeForeground="Black"
+                                    NumberDecimalDigits="0"
+                                    Margin="3" 
+                                    MinValue="1"
+                                    Value="{Binding RowCount,Mode=TwoWay}"  
+                                    Grid.Row="2" Grid.Column="1"
+                                    MaxValue="10" />
+
+                <TextBlock Margin="3" 
+                           Grid.Row="3"
+                           Text ="HorizontalScrollBarVisibility"/>
+                <ComboBox SelectedItem="{Binding HorizontalScrollBarVisibility,Mode=TwoWay}"
+                          Margin="3"
+                          Grid.Row="3" 
+                          Grid.Column="1" >
+                    <ScrollBarVisibility>Auto</ScrollBarVisibility>
+                    <ScrollBarVisibility>Disabled</ScrollBarVisibility>
+                    <ScrollBarVisibility>Hidden</ScrollBarVisibility>
+                    <ScrollBarVisibility>Visible</ScrollBarVisibility>
+                </ComboBox>
+
+                <TextBlock Margin="3" 
+                           Grid.Row="4"
+                           Text ="VerticalScrollBarVisibility"/>
+                <ComboBox SelectedItem="{Binding VerticalScrollBarVisibility,Mode=TwoWay}"                                   
+                          Margin="3"                                   
+                          Grid.Row="4" 
+                          Grid.Column="1" >
+                    <ScrollBarVisibility>Auto</ScrollBarVisibility>
+                    <ScrollBarVisibility>Disabled</ScrollBarVisibility>
+                    <ScrollBarVisibility>Hidden</ScrollBarVisibility>
+                    <ScrollBarVisibility>Visible</ScrollBarVisibility>
+                </ComboBox>
+
+                <TextBlock Margin="3" 
+                           Grid.Row="5"
+                           Text ="EnableAnimation"/>
+                <CheckBox IsChecked="{Binding EnableAnimation,Mode=TwoWay}"                                  
+                          Margin="3"                                   
+                          Grid.Row="5" 
+                          Grid.Column="1" />               
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Window>
