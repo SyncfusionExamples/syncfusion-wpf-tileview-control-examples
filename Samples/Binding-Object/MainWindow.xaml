@@ -1,0 +1,36 @@
+﻿<Window x:Class="Binding_Object.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local1="clr-namespace:Binding_Object.ViewModel" 
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="TileViewControl - Binding Objects" Height="550" Width="500">
+    <Window.DataContext>
+        <local1:ViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <syncfusion:TileViewControl MinimizedItemsPercentage="40" Margin="30"
+                                    ItemsSource="{Binding TileViewItems}" 
+                                    Name="tileViewControl">
+            <!--Custom header UI-->
+            <syncfusion:TileViewControl.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Header}"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" />
+                </DataTemplate>
+            </syncfusion:TileViewControl.HeaderTemplate>
+
+            <!--Custom content UI-->
+            <syncfusion:TileViewControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Content}"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" />
+                </DataTemplate>
+            </syncfusion:TileViewControl.ItemTemplate>
+        </syncfusion:TileViewControl>
+    </Grid>
+</Window>

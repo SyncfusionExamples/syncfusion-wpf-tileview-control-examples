@@ -1,0 +1,52 @@
+﻿<Window x:Class="TileViewItem_Header.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TileViewItem_Header"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="TileViewItem - Header appearance" Height="600" Width="600">
+    <Grid>
+        <syncfusion:TileViewControl RowCount="4"
+                                    ColumnCount="3" 
+                                    Margin="30"
+                                    Name="tileViewControl">
+            <syncfusion:TileViewItem HeaderVisibility="Collapsed" 
+                                     Content="Content 1" Header="Item 1"/>
+            <syncfusion:TileViewItem HeaderHeight="50" 
+                                     Content="Content 2" Header="Item 2" />
+            <syncfusion:TileViewItem HeaderForeground="Red"
+                                     Content="Content 3" Header="Item 3" />
+            <syncfusion:TileViewItem HeaderVisibility="Collapsed" 
+                                     Content="Content 4" Header="Item 4"/>
+            <syncfusion:TileViewItem HeaderHeight="50" 
+                                     Content="Content 5" Header="Item 5" />
+            <syncfusion:TileViewItem HeaderForeground="Yellow"
+                                     Content="Content 6" Header="Item 6" />
+            <syncfusion:TileViewItem HeaderBackground="Red"
+                                     Content="Content 7" Header="Item 7" />
+            <syncfusion:TileViewItem HeaderBorderBrush="Yellow"
+                                     HeaderBorderThickness="3"
+                                     Content="Content 8" Header="Item 8" />
+            <syncfusion:TileViewItem HeaderVisibility="Collapsed" 
+                                     Content="Content 9" Header="Item 9" />
+            <syncfusion:TileViewItem HeaderBackground="Blue"
+                                     Content="Content 10" Header="Item 10" />
+            <syncfusion:TileViewItem HeaderBorderBrush="Red"
+                                     HeaderBorderThickness="3"
+                                     Content="Content 11" Header="Item 11" />
+            <syncfusion:TileViewItem HeaderVisibility="Collapsed" 
+                                     Content="Content 12" Header="Item 12" />
+            <syncfusion:TileViewControl.ItemTemplate>
+                <DataTemplate x:Name="headerTemplate">
+                    <Grid>
+                        <TextBlock  Text="{Binding}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:TileViewControl.ItemTemplate>
+        </syncfusion:TileViewControl>
+    </Grid>
+</Window>

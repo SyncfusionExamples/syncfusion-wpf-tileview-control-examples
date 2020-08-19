@@ -1,0 +1,52 @@
+﻿<Window x:Class="ItemTemplate_Selector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+        xmlns:local="clr-namespace:ItemTemplate_Selector"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="TileViewControl - ItemTemplateSelector" Height="550" Width="500">
+    <Window.Resources>
+        <local:MyTemplateSelector x:Key="Mytemplate">
+            <local:MyTemplateSelector.Template1>
+                <DataTemplate>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center" 
+                               Text="{Binding Content}" Foreground="Red"/>
+                </DataTemplate>
+            </local:MyTemplateSelector.Template1>
+            <local:MyTemplateSelector.Template2>
+                <DataTemplate>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center" 
+                               Text="{Binding Content}" Foreground="Blue"/>
+                </DataTemplate>
+            </local:MyTemplateSelector.Template2>
+            <local:MyTemplateSelector.Template3>
+                <DataTemplate>
+                    <TextBlock HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" 
+                               Text="{Binding Content}" Foreground="Goldenrod"/>
+                </DataTemplate>
+            </local:MyTemplateSelector.Template3>
+        </local:MyTemplateSelector>
+    </Window.Resources>
+
+    <Grid>
+        <syncfusion:TileViewControl ItemTemplateSelector="{StaticResource Mytemplate}" 
+                                    ItemsSource="{Binding TileViewItems}"
+                                    MinimizedItemsPercentage="40"
+                                    Name="tileViewControl"
+                                    Margin="30">
+            <syncfusion:TileViewControl.ItemContainerStyle>
+                <Style TargetType="syncfusion:TileViewItem">
+                    <Setter Property="Header" Value="{Binding Header}"/>
+                </Style>
+            </syncfusion:TileViewControl.ItemContainerStyle>
+            <syncfusion:TileViewControl.DataContext>
+                <local:ViewModel/>
+            </syncfusion:TileViewControl.DataContext>
+        </syncfusion:TileViewControl>
+    </Grid>
+</Window>

@@ -1,0 +1,41 @@
+﻿<Window x:Class="MinimizedItem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MinimizedItem" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Min-Max TileViewItem Header" Height="450" Width="500">
+    
+        <Window.Resources>
+        <DataTemplate x:Key="maximizedHeaderTemplate">
+            <Grid>
+                <TextBlock HorizontalAlignment="Center"
+                       Text="{Binding}" 
+                       FontFamily="Verdana"
+                       Background="Green"
+                       Foreground="White"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="minimizedHeaderTemplate">
+                <Grid>
+                    <TextBlock HorizontalAlignment="Center"
+                       Text="{Binding}" 
+                       FontFamily="Verdana"
+                       Background="Red"
+                       Foreground="Yellow"/>
+                </Grid>
+            </DataTemplate>
+        </Window.Resources>
+        <Grid>
+        <syncfusion:TileViewControl MaximizedHeaderTemplate="{StaticResource maximizedHeaderTemplate}"
+                                    MinimizedHeaderTemplate="{StaticResource minimizedHeaderTemplate}"
+                                    Margin="30"
+                                    Name="tileViewControl">
+                <syncfusion:TileViewItem Header="Item 1" />
+                <syncfusion:TileViewItem Header="Item 2" />
+                <syncfusion:TileViewItem Header="Item 3" />
+                <syncfusion:TileViewItem Header="Item 4" />
+            </syncfusion:TileViewControl>
+        </Grid>
+</Window>

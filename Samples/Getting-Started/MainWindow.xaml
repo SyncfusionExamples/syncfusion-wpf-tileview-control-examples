@@ -10,7 +10,8 @@
         <syncfusion:TileViewControl Name="tileViewControl" 
                                     Width="400" Height="300" >
             <syncfusion:TileViewItem Header="Item 1" Content="Content 1"/>
-            <syncfusion:TileViewItem Header="Item 2" Content="Content 2"/>
+            <syncfusion:TileViewItem IsSelected="True"
+                                     Header="Item 2" Content="Content 2"/>
             <syncfusion:TileViewItem Header="Item 3" Content="Content 3"/>
             <syncfusion:TileViewItem Header="Item 4" Content="Content 4"/>
         </syncfusion:TileViewControl>

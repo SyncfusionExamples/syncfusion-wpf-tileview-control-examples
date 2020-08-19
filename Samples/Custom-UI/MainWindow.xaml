@@ -1,0 +1,42 @@
+﻿<Window x:Class="Custom_Header.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Custom_Header" 
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="TileViewItem - Custom UI" Height="450" Width="500">
+
+
+    <Window.Resources>
+        <DataTemplate x:Key="contentTemplate">
+            <Grid Background="Yellow">
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="{Binding}"
+                           Foreground="Red"
+                           />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="headerTemplate">
+            <Grid Background="Red">
+                <TextBlock HorizontalAlignment="Center"
+                           Text="{Binding}" 
+                           FontFamily="Verdana"                           
+                           Foreground="Yellow"/>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <syncfusion:TileViewControl ItemTemplate="{StaticResource contentTemplate}" 
+                                    HeaderTemplate="{StaticResource headerTemplate}"
+                                    Margin="30"
+                                    Name="tileViewControl">
+            <syncfusion:TileViewItem Content="Content 1" Header="Item 1" />
+            <syncfusion:TileViewItem Content="Content 2" Header="Item 2" />
+            <syncfusion:TileViewItem Content="Content 3" Header="Item 3" />
+            <syncfusion:TileViewItem Content="Content 4" Header="Item 4" />
+        </syncfusion:TileViewControl>
+    </Grid>
+</Window>

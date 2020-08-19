@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Books>
+  <Book Name="Programming C# 4.0" 
+        Description="Learn C# fundamentals, such as variables, flow control, loops, and methods"/>
+  <Book Name="Programming WPF" 
+        Description="A tutorial on XAML, the new HTML-like markup language for declaring Windows UI"/>
+  <Book Name="Essential WPF" 
+        Description="Visuals and media, including 2D, 3D, video, and animation"/>
+  <Book Name="WPF Unleashed" 
+        Description="Examines the WPF feature areas in incredible depth: controls, layout, resources, data binding, styling, graphics, animation, and more"/>
+</Books>
