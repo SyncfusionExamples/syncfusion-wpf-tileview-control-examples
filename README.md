@@ -5,7 +5,7 @@ This repository contains the samples that demonstrate the functionalities of Til
 <table>
  <tr>
   <td><a href="Samples/Getting-Started">Getting Started</a></td>
-  <td><a href="Samples/Getting-Started">Populating items using TileViewItem</a></td>
+  <td><a href="Samples/Getting-Started">Populating TileViewItems</a></td>
   <td><a href="Samples/Binding-Object">Binding Object</a></td>
   <td><a href="Samples/Binding-XML">Binding XML</a></td>  
   <td><a href="Samples/Getting-Started">Select TileViewItem programmatically</a>   
